@@ -2,33 +2,58 @@
 
 namespace Module6_OOPIntro
 {
-	class Pen
+	class Human
 	{
-		public string color;
-		public int cost;
+		// Поля класса
+		public string name;
+		public int age;
 
-		public Pen()
-        {
-			color = "Черный";
-			cost = 100;
-        }
+		// Метод класса
+		public void Greetings()
+		{
+			Console.WriteLine("Меня зовут {0}, мне {1}", name, age);
+		}
 
-		public Pen(string penColor, int penCost)
-        {
-			color = penColor;
-			cost = penCost;
-        }
+		// Конструктор 1
+		public Human()
+		{
+			name = "Неизвестно";
+			age = 20;
+		}
+		// Конструктор 2
+		public Human(string n)
+		{
+			name = n;
+			age = 20;
+		}
+		// Конструктор 3
+		public Human(string n, int a)
+		{
+			name = n;
+			age = a;
+		}
+	}
+
+	struct Animal
+	{
+		// Поля структуры
+		public string type;
+		public string name;
+		public int age;
+
+		// Метод структуры
+		public void Info()
+		{
+			Console.WriteLine("Это {0} по кличке {1}, ему {2}", type, name, age);
+		}
 	}
 
 	class Program
 	{
 		static void Main(string[] args)
 		{
-			Pen pen1 = new Pen();
-            Console.WriteLine($"Конструктор без параметров: {pen1.color}, {pen1.cost}");
-
-			Pen pen2 = new Pen("Белый", 50);
-			Console.WriteLine($"Конструктор с параметрами: {pen2.color}, {pen2.cost}");
+			Human human = new Human { name = "Дмитрий", age = 23 };
+			human.Greetings();
 
 			Console.ReadLine();
 		}
