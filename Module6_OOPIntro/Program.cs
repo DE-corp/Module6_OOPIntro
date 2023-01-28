@@ -52,8 +52,8 @@ namespace Module6_OOPIntro
 	{
 		static void Main(string[] args)
 		{
-			Human human = new Human { name = "Дмитрий", age = 23 };
-			human.Greetings();
+			Animal animal = new Animal {type = "Собака", name = "Вольт", age = 4 };
+			animal.Info();
 
 			Console.ReadLine();
 		}
