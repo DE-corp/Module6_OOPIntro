@@ -2,20 +2,36 @@
 
 namespace Module6_OOPIntro
 {
-    class Example
-    {
-        public string Name;
+	class ExternalClass
+	{
+		public class ClassInternalClass
+		{
+		}
 
-        public void Show()
-        {
+		struct ClassInternalStruct
+		{
+		}
+	}
 
-        }
-    }
-    class Program
+	class ExternalStruct
+	{
+		class StructInternalClass
+		{
+		}
+
+		public struct StructInternalStruct
+		{
+		}
+	}
+
+	class Program
     {
         static void Main(string[] args)
         {
-            Console.ReadLine();
+			ExternalClass.ClassInternalClass newClass;
+			ExternalStruct.StructInternalStruct newStruct;
+
+			Console.ReadLine();
         }
     }
 }
