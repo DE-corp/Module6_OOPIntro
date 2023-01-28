@@ -55,8 +55,10 @@ namespace Module6_OOPIntro
 			Human human = new Human();
 			human.Greetings();
 
-			human.name = "Дмитрий";
-			human.age = 31;
+			human = new Human("Дмитрий");
+			human.Greetings();
+
+			human = new Human("Дмитрий", 23);
 			human.Greetings();
 
 
