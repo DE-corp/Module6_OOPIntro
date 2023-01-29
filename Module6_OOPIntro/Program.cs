@@ -2,50 +2,31 @@
 
 namespace Module6_OOPIntro
 {
-	class Company
+	class Bus
 	{
-		public string Type;
-		public string Name;
-	}
+		public int? Load;
 
-	class Department
-	{
-		public Company Company;
-		public City City;
-	}
-
-	class City
-	{
-		public string Name;
+		public void PrintStatus()
+		{
+			if (Load.HasValue)
+			{
+				Console.WriteLine($"В автобусе {Load.Value} пассажиров");
+			}
+			else
+			{
+				Console.WriteLine("Автобус пуст!");
+			}
+		}
 	}
 
 	class Program
 	{
 		static void Main(string[] args)
 		{
-			{
-				var department = GetCurrentDepartment();
+            var Bus = new Bus { Load = 20 };
+            //var Bus = new Bus();
 
-				department.City.Name = "Санкт-Петербург";
-				department.Company.Type = "Банк";
-
-				if (department?.Company?.Type == "Банк" && department?.City?.Name == "Санкт-Петербург")
-				{
-					Console.WriteLine("У банка {0} есть отделение в Санкт-Петербурге", department?.Company?.Name ?? "Неизвестная компания");
-				}
-			}
-
-			static Department GetCurrentDepartment()
-			{
-                Department departament = new Department{City = new City(), Company = new Company()};
-                
-				departament.City.Name = "Санкт-Петербург";
-				departament.Company.Type = "Банк";
-
-				//departament.Company.Name = "Банка";
-
-				return departament;
-			}
+			Bus.PrintStatus();
 
 			Console.ReadLine();
 		}
