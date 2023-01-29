@@ -2,39 +2,50 @@
 
 namespace Module6_OOPIntro
 {
-	class Rectangle
-    {
-		public int a;
-		public int b;
+	class Company
+	{
+		public string Type;
+		public string Name;
+	}
 
-		public Rectangle()
-        {
-			a = 6;
-			b = 4;
-        }
+	class Department
+	{
+		public Company Company;
+		public City City;
+	}
 
-		public Rectangle(int a, int b)
-        {
-			this.a = a;
-			this.b = b;
-		}
-
-		public Rectangle(int a)
-		{
-			this.a = a;
-			b = a;
-		}
-
-		public double Square() => a * b;
-
+	class City
+	{
+		public string Name;
 	}
 
 	class Program
 	{
 		static void Main(string[] args)
 		{
-			Rectangle rectangle = new Rectangle(2, 3);
-            Console.WriteLine($"Площадь прямоугольника = {rectangle.Square()}");
+			{
+				var department = GetCurrentDepartment();
+
+				department.City.Name = "Санкт-Петербург";
+				department.Company.Type = "Банк";
+
+				if (department?.Company?.Type == "Банк" && department?.City?.Name == "Санкт-Петербург")
+				{
+					Console.WriteLine("У банка {0} есть отделение в Санкт-Петербурге", department?.Company?.Name ?? "Неизвестная компания");
+				}
+			}
+
+			static Department GetCurrentDepartment()
+			{
+                Department departament = new Department{City = new City(), Company = new Company()};
+                
+				departament.City.Name = "Санкт-Петербург";
+				departament.Company.Type = "Банк";
+
+				//departament.Company.Name = "Банка";
+
+				return departament;
+			}
 
 			Console.ReadLine();
 		}
