@@ -2,20 +2,51 @@
 
 namespace Module6_OOPIntro
 {
-	class Bus
-	{
-		public int? Load;
+	class Triangle
+    {
+		public int a;
+		public int b;
+		public int c;
 
-		public void PrintStatus()
+		public double GetSquare()
+        {
+			double p = (a + b + c) / 2;
+			return Math.Sqrt(p * (p - a) * (p - b) * (p - c));
+		}
+
+		public double GetPerimeter()
 		{
-			if (Load.HasValue)
-			{
-				Console.WriteLine($"В автобусе {Load.Value} пассажиров");
-			}
-			else
-			{
-				Console.WriteLine("Автобус пуст!");
-			}
+			return a + b + c;
+		}
+
+	}
+
+	class Circle
+	{
+		public int radius;
+		public double GetSquare()
+		{
+			return Math.PI * Math.Pow(radius, 2);
+		}
+
+		public double GetPerimeter()
+		{
+			return 2 * Math.PI * radius;
+		}
+	}
+
+	class Square
+	{
+		public int side;
+
+		public double GetSquare()
+		{
+			return Math.Pow(side, 2);
+		}
+
+		public double GetPerimeter()
+		{
+			return side * 4;
 		}
 	}
 
@@ -23,10 +54,9 @@ namespace Module6_OOPIntro
 	{
 		static void Main(string[] args)
 		{
-            var Bus = new Bus { Load = 20 };
-            //var Bus = new Bus();
-
-			Bus.PrintStatus();
+			var square = new Square { side = 5 };
+            Console.WriteLine(square.GetPerimeter());
+			Console.WriteLine(square.GetSquare());
 
 			Console.ReadLine();
 		}
