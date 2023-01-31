@@ -2,33 +2,89 @@
 
 namespace Module6_OOPIntro
 {
-	class TrafficLight
-    {
-		private string Color;
+	class User
+	{
+		private int age;
+		private string login;
+		private string email;
 
-		public TrafficLight(string Color)
+		public string Login
         {
-			this.Color = Color;
+            get
+            {
+				return login;
+            }
+
+            set
+            {
+				if (value.Length > 3){
+					login = value;
+                }
+                else
+                {
+                    Console.WriteLine("Длина логина должна быть не менее 3 символов!");
+                }
+
+            }
         }
 
-		private void ChangeColor(string color)
-        {
+		public string Email
+		{
+			get
+			{
+				return email;
+			}
 
-        }
+			set
+			{
+				if (value.Contains("@"))
+				{
+					email = value;
+				}
+				else
+				{
+					Console.WriteLine("Почта должна содержать знак @!");
+				}
 
-		public string GetColor()
-        {
-			return Color;
-        }
+			}
+		}
+
+		public int Age
+		{
+			get
+			{
+				return age;
+			}
+
+			set
+			{
+				if (value < 18)
+				{
+					Console.WriteLine("Возраст должен быть не меньше 18");
+				}
+				else
+				{
+					age = value;
+				}
+			}
+		}
 	}
 
 	class Program
 	{
 		static void Main(string[] args)
 		{
-			var Trafficlight = new TrafficLight("Red");
-            Console.WriteLine(Trafficlight.GetColor());
-            
+			var user = new User();
+            Console.Write("Введите ваш возраст: ");
+			user.Age = int.Parse(Console.ReadLine());
+
+			Console.Write("Введите ваш логин: ");
+			user.Login = Console.ReadLine();
+
+			Console.Write("Введите вашу почту: ");
+			user.Email = Console.ReadLine();
+
+            Console.WriteLine($"\nВозраст: {user.Age}\nЛогин: {user.Login}\nПочта: {user.Email}");
 
 			Console.ReadLine();
 		}
