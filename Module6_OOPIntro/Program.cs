@@ -2,61 +2,33 @@
 
 namespace Module6_OOPIntro
 {
-	class Triangle
+	class TrafficLight
     {
-		public int a;
-		public int b;
-		public int c;
+		private string Color;
 
-		public double GetSquare()
+		public TrafficLight(string Color)
         {
-			double p = (a + b + c) / 2;
-			return Math.Sqrt(p * (p - a) * (p - b) * (p - c));
-		}
+			this.Color = Color;
+        }
 
-		public double GetPerimeter()
-		{
-			return a + b + c;
-		}
+		private void ChangeColor(string color)
+        {
 
-	}
+        }
 
-	class Circle
-	{
-		public int radius;
-		public double GetSquare()
-		{
-			return Math.PI * Math.Pow(radius, 2);
-		}
-
-		public double GetPerimeter()
-		{
-			return 2 * Math.PI * radius;
-		}
-	}
-
-	class Square
-	{
-		public int side;
-
-		public double GetSquare()
-		{
-			return Math.Pow(side, 2);
-		}
-
-		public double GetPerimeter()
-		{
-			return side * 4;
-		}
+		public string GetColor()
+        {
+			return Color;
+        }
 	}
 
 	class Program
 	{
 		static void Main(string[] args)
 		{
-			var square = new Square { side = 5 };
-            Console.WriteLine(square.GetPerimeter());
-			Console.WriteLine(square.GetSquare());
+			var Trafficlight = new TrafficLight("Red");
+            Console.WriteLine(Trafficlight.GetColor());
+            
 
 			Console.ReadLine();
 		}
